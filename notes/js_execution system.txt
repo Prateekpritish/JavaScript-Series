@@ -1,0 +1,9 @@
+so this video of chai aur code explained by Hitesh Choudhary perfectly about js execution system
+
+global execution
+function execution
+eval execution
+
+global execution -> memory cretaion phase -> execution phase
+
+https://youtu.be/ByhtOgF6uYM?si=iNQgdyfe9Ef6l-j2 
