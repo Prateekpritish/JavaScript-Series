@@ -14,17 +14,29 @@ it's a browser code not pure html or js .
 
 </head>
 <body style="background-color: black;color: #fff;">
-    <ul class="language">
+    <ul class="language"> <!--[1.0]-->
         <li>Javascript</li>
     </ul>
 </body>
 <script>
-    // this is the innerhtml way , its unoptimized reason innerhtml rebuilds the DOM tree
+    // this is the innerhtml way , its unoptimized - reason innerhtml rebuilds the DOM tree by breaking the old
+    // it fully traverse the whole tree
     function addLanguage(langName){
+        const li = document.createElement('li') // we created a variable and stored there the newly cretaed list item(<li>) refrence value
+        li.innerHTML = `${langName}` // with innerHTML we change it to desired name dynamically through parameter variable
+        document.querySelector('.language').appendChild(li) // the last thing updating that value by appending it using appendchild
+        // .language is the class name we have given to target the parent  [goto 1.0]
+    }
+    addLanguage('C++') //function called and argument passed
+
+    // Another way the optimize way USING OF TextNode instead of innerhtml as it only mutates existing node in place
+
+    function addlanguage2(langName){
         const li = document.createElement('li')
-        li.innerHTML = `${langName}`
+        li.appendChild(document.createTextNode(langName)) // creating text node is optimized
         document.querySelector('.language').appendChild(li)
     }
-    addLanguage('C++')
+
+    addlanguage2('React')
 </script>
 </html>
