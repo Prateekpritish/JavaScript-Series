@@ -1,0 +1,30 @@
+<!-- DOM needs to be saved as html files as it runs on browser 
+what is DOM? => Document object model , in browser everything is build like atree model from 
+root to parent child sub child carry on.
+
+it's a browser code not pure html or js .
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+</head>
+<body style="background-color: black;color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // this is the innerhtml way , its unoptimized reason innerhtml rebuilds the DOM tree
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage('C++')
+</script>
+</html>
