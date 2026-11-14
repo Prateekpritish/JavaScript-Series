@@ -30,3 +30,34 @@ buttons.forEach(function (items) {
 });
 
 ```
+### Project 2
+[click here](https://stackblitz.com/edit/stackblitz-starters-eqoqynbm?file=project2%2Fscript.js)
+
+## solution code 
+
+``` javascript
+  const calculate = document.querySelector('#calculate');
+
+calculate.addEventListener('click', () => {
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const result = document.querySelector('#result');
+
+  const results = (weight / ((height / 100) * (height / 100))).toFixed(2);
+
+  if (isNaN(height) || height === '') {
+    result.innerHTML = `<span> Please provide valid details for height : ${height} </span>`;
+  } else if (isNaN(weight) || weight === '') {
+    result.innerHTML = `<span>Please provide valid details for weight : ${weight}</span>`;
+  } else if (results < 18.5) {
+    result.innerHTML = `${results} (you are underweight)`;
+  } else if (results < 25.0 && results > 18.4) {
+    result.innerHTML = `${results} (you are Normal)`;
+  } else if (results > 24.9 && results < 30.0) {
+    result.innerHTML = `${results} (you are Normal)`;
+  } else {
+    result.innerHTML = `${results} caution you are obese!`;
+  }
+});
+
+```
