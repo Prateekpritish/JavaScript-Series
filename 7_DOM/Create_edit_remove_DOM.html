@@ -19,6 +19,7 @@ it's a browser code not pure html or js .
     </ul>
 </body>
 <script>
+    console.log("==========SECTION CREATE============")
     // this is the innerhtml way , its unoptimized - reason innerhtml rebuilds the DOM tree by breaking the old
     // it fully traverse the whole tree
     function addLanguage(langName){
@@ -38,5 +39,19 @@ it's a browser code not pure html or js .
     }
 
     addlanguage2('React')
+
+    console.log("===============SECTION EDIT==========")
+    // LETS EDIT THE VALUE C++ TO NEXT JS
+
+    const secondlang = document.querySelector("li:nth-child(2)") // css selector proprty the selecting second li c++ its start from 1 not 0(unlike arrays)
+    const newli = document.createElement('li')
+    newli.textContent = "Nextjs"
+    secondlang.replaceWith(newli)
+
+    console.log("==================SECTION REMOVE=================")
+
+    const removelang = document.querySelector("li:first-child") // here first-child means a css selector property its indicating the parent first child iteme i.e the first <li> javacsript
+    removelang.remove()
+
 </script>
 </html>
