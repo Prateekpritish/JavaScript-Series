@@ -61,3 +61,19 @@ calculate.addEventListener('click', () => {
 });
 
 ```
+
+### Project 3
+[click here](https://stackblitz.com/edit/stackblitz-starters-eqoqynbm?file=project3%2Fscript.js)
+
+## Solution code
+
+```javascript
+const time = document.querySelector('.yellow-box');
+
+setInterval(() => {
+  let date = new Date();
+  time.innerHTML = date.toLocaleTimeString();
+  console.log(date.toLocaleTimeString());
+}, 1000);
+
+```
