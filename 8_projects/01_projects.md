@@ -77,3 +77,104 @@ setInterval(() => {
 }, 1000);
 
 ```
+
+### Project 4
+
+[click here](https://stackblitz.com/edit/stackblitz-starters-eqoqynbm?file=project4%2Fscript.js)
+
+## Solution code
+
+```javascript
+let randomNumber = parseInt(Math.random() * 100 + 1)
+// console.log(randomNumber)
+const guessInput = document.querySelector('#guessInput')
+const submit = document.querySelector('#submitBtn')
+const result = document.querySelector('#result')
+const previousGuesses = document.querySelector('#previousGuesses')
+const remainingGuesses = document.querySelector('#remainingGuesses')
+const startOver = document.querySelector('#startOver')
+
+
+let guessesArray = []
+
+
+submit.addEventListener('click',() => {
+  const guess = parseInt(guessInput.value)
+  if(isNaN(guess)||guess < 1 || guess > 100){
+    DisplayMessage()
+  }
+  userGuessMessage(guess)
+  previousGuessesDisplay(guess)
+  
+  
+})
+
+function DisplayMessage(){
+    alert('Please enter number between 1 to 100')
+    return
+}
+
+function userGuessMessage(guess) {
+  guessInput.value = ''
+  if(guess === randomNumber){
+    result.innerHTML = `<h3>Congrats the number is ${randomNumber}!</h3>`
+    gameOver(guess)
+  }else if(guess < randomNumber){
+    result.innerHTML = `<h4>The number is too low</h4>`
+  }else{
+    result.innerHTML = `<h4>The number is too high</h4>`
+  } 
+    // console.log('function called')
+}
+
+function previousGuessesDisplay(guess){
+  if(!isNaN(guess) && !(guess < 1) && !(guess > 100))
+  {
+    let arr = guessesArray.push(guess)
+  
+  // console.log(arr)
+  if(arr === 10){
+    previousGuesses.innerHTML += `<span>${guess}, </span>`
+    remainingGuesses.innerHTML = `${10-arr}`
+    gameOver()
+  }
+  else if(isNaN(guess)|| guess<1 || guess > 100){
+  }
+  else{
+    previousGuesses.innerHTML += `<span>${guess}, </span>`
+    remainingGuesses.innerHTML = `${10-arr}`
+  }
+}
+}
+
+function gameOver(guess){
+  if(!(guess === randomNumber)){
+    result.innerHTML = `<h3> Game over number is : ${randomNumber}</h3>`
+  }
+    startOver.innerHTML = `<button id="restart"> Start Over </button>`  
+    guessInput.setAttribute('disabled','')
+    submit.setAttribute('disabled','')
+
+    newGame()
+}
+
+function newGame(){
+  const restart = document.querySelector('#restart')
+  restart.addEventListener('click',()=>{
+    randomNumber =  parseInt(Math.random() * 100 + 1)
+     guessesArray = []
+
+     guessInput.value = ''
+     previousGuesses.innerHTML = ''
+     remainingGuesses.innerHTML = `10`
+     guessInput.removeAttribute('disabled','')
+     submit.removeAttribute('disabled','')
+
+     result.innerHTML = ' Make your first guess!'
+
+     startOver.innerHTML = ''
+  })
+}
+
+
+```
