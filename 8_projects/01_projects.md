@@ -1,4 +1,4 @@
-# Projects
+# Projects related to DOM
 
 ## Project link
 ### Project 1 [click here](https://stackblitz.com/edit/stackblitz-starters-eqoqynbm?file=project1%2Fscript.js)
