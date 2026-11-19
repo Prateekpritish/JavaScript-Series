@@ -178,3 +178,72 @@ function newGame(){
 
 
 ```
+
+### Project 5
+
+[click here](https://stackblitz.com/edit/stackblitz-starters-3svjkvut?file=project1%2Fscript.js)
+
+
+## Solution code 
+
+``` javascript
+const randomColor = () => {
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+let intervalID = null;
+const startChangingColor = () => {
+  if (intervalID === null) {
+    intervalID = setInterval(changeBGcolor, 1000);
+  }
+
+  function changeBGcolor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+};
+
+const stopChangingColor = () => {
+  clearInterval(intervalID);
+  intervalID = null; // optimizing clearing the value no need
+};
+
+const start = document.querySelector('#start');
+const stop = document.querySelector('#stop');
+
+start.addEventListener('click', startChangingColor);
+
+stop.addEventListener('click', stopChangingColor);
+
+```
+
+### Project 6 
+[Click here](https://stackblitz.com/edit/stackblitz-starters-3svjkvut?file=project2%2Fscript.js)
+
+## Solution code
+
+```javascript
+
+const div = document.getElementById('div')
+
+window.addEventListener('keydown',(e) => {
+  div.innerHTML = `
+  <table style="border-collapse: collapse; border: 2px solid #00ffcc ; margin: 0 auto; text-align: center;">
+  <tr>
+    <th style="border: 2px solid #00ffcc; padding: 10px;">key</th>
+    <th style="border: 2px solid #00ffcc; padding: 10px;">code</th>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #00ffcc; padding: 10px;">${e.key === ' ' ? 'space' : e.key}</td>
+    <td style="border: 2px solid #00ffcc; padding: 10px;">${e.code}</td>
+  </tr>
+  
+</table>
+  `
+})
+
+```
