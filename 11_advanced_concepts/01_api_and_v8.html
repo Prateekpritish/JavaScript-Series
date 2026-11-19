@@ -1,0 +1,41 @@
+
+<!-- NOTE! RUN THE CODE WITH LIVE SERVER TO UNDERSTAND -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API fetch practice</title>
+</head>
+<body style="margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #121212; color: white;">
+    <!-- The "Card" is just this div! -->
+<div id="card" style="width: 250px; border: 2px solid #00ffcc; border-radius: 10px; padding: 16px; text-align: center;">
+  <img id="avatar" src="" alt="Profile" style="width: 100px; border-radius: 50%;" />
+  <h2 id="name">Loading...</h2>
+  <p id="followers">Followers: --</p>
+</div>
+
+<script>
+    const requestedURL = "https://api.github.com/users/hiteshchoudhary"
+    const xhrRequest = new XMLHttpRequest() //XML request 
+    xhrRequest.open('GET',requestedURL) //open() ->  method initializes and configures an HTTP request before it is sent to the server, without actually transmitting any network data yet.
+    xhrRequest.onreadystatechange = function () { // onreadystatechange property shows the code ,tracks it
+        console.log(xhrRequest.readyState)
+        if(xhrRequest.readyState === 4)// ready state shows us the api process codes 
+        {    
+            const data= JSON.parse(this.responseText)   // this codes tells us  something, read the description.md file in this folder
+            // console.log(data.login)
+            const name = document.getElementById('name')
+            const image = document.getElementById('avatar')
+            const follower = document.getElementById('followers')
+            name.innerHTML = data.login
+            image.src = data.avatar_url
+            follower.innerHTML = data.followers
+
+        }   
+    }                                    
+    xhrRequest.send() // the send () is necessary or it will not send the request
+</script>
+</body>
+</html>
