@@ -1,9 +1,9 @@
 // getter and setter
 
 class user {
-    constructor(email,passowrd){
+    constructor(email,password){
         this.email = email
-        this.password = passowrd
+        this.password = password
     }
 
     set password(value){
@@ -17,4 +17,4 @@ class user {
 }
 
 const user1 = new user("h@ai.com","hiteshabc")
-console.log(user1.password)  
+console.log(user1.email)  
