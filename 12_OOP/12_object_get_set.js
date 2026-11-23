@@ -15,4 +15,4 @@ const user = {
 }
 
 const user1 = Object.create(user)
-console.log(user1._email)
+console.log(user1.email)
